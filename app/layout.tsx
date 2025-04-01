@@ -1,6 +1,8 @@
+
 import '@/app/ui/global.css';
 import { inter } from '@/app/ui/fonts';
- 
+import { HotJar } from './lib/hotjar';
+
 export default function RootLayout({
   children,
 }: {
@@ -8,6 +10,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <HotJar/>
       <body className={`${inter.className} antialiased`}>{children}</body>
     </html>
   );
