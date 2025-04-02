@@ -29,17 +29,19 @@ export async function createInvoice(formData: FormData) {
   const amountInCents = amount * 100;
   // create a new date with the format "YYYY-MM-DD" 
   const date = new Date().toISOString().split('T')[0];
-  // Inserting the data into database
+  try {
+      // Inserting the data into database
   await sql`
   INSERT INTO invoices (customer_id, amount, status, date)
   VALUES (${customerId}, ${amountInCents}, ${status}, ${date})
   `;
+  } catch (error) {
+    console.error(error)
+  }
+
 // clear this cache and trigger a new request to the server.
    revalidatePath('/dashboard/invoices');
    redirect('/dashboard/invoices');
-
-  // Test it out in server logs:
-  console.log('rawFormData ',customerId, amount, status );
 }
 
 export async function updateInvoice(id: string, formData: FormData) {
@@ -50,23 +52,28 @@ export async function updateInvoice(id: string, formData: FormData) {
   });
  
   const amountInCents = amount * 100;
- 
+  try {
   await sql`
     UPDATE invoices
     SET customer_id = ${customerId}, amount = ${amountInCents}, status = ${status}
     WHERE id = ${id}
   `;
- 
+} catch (error) {
+  console.error(error)
+}
   revalidatePath('/dashboard/invoices');
   redirect('/dashboard/invoices');
 }
 
 export async function deleteInvoice(id: string) {
+  try {
   await sql`
     DELETE 
     FROM invoices
     WHERE id = ${id}
   `;
- 
+} catch (error) {
+  console.error(error)
+}
   revalidatePath('/dashboard/invoices');
 }
