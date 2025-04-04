@@ -13,7 +13,7 @@ export const HotJar = () => {
                 // eslint-disable-next-line prefer-rest-params
                 (h.hj.q = h.hj.q || []).push(arguments);
               };
-            h._hjSettings = { hjid: ${process.env.HOTJAR_TRACK_CODE}, hjsv: 6 };
+            h._hjSettings = { hjid: ${process.env.NEXT_PUBLIC_HOTJAR_TRACK_CODE}, hjsv: 6 };
             a = o.getElementsByTagName("head")[0];
             r = o.createElement("script");
             r.async = 1;
