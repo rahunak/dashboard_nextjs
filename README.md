@@ -11,3 +11,10 @@ attribute 'data-hj-suppress' uses with Hotjar services, to hide sensitive info i
 
 Are you trying to access it in the browser?
 Only NEXT_PUBLIC_* variables are exposed to the browser.
+
+Create AUTH_SECRET with command:
+openssl rand -base64 32
+
+user@nextmail.com
+123456
+
