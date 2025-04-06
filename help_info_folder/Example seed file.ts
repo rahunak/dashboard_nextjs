@@ -1,3 +1,5 @@
+// This file was left here only for examples. Guide tell to remove it after complete chapter 7.
+
 import bcrypt from 'bcryptjs';
 import postgres from 'postgres';
 import { invoices, customers, revenue, users } from '../lib/placeholder-data';
