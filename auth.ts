@@ -33,9 +33,11 @@ export const { auth, signIn, signOut } = NextAuth({
                     const { email, password } = parsedCredentials.data;
 
                     const user = await getUser(email);
+                    console.log("user",user);
                     if (!user) return null;
 
                     const passwordsMatch = await bcrypt.compare(password, user.password);
+                    console.log("passwordsMatch",passwordsMatch);
                     if (passwordsMatch) return user;
                 }
 
@@ -47,3 +49,7 @@ export const { auth, signIn, signOut } = NextAuth({
 });
 //There are other alternative providers such as OAuth or email. See the NextAuth.js docs for a full list of options.
 //https://authjs.dev/getting-started/authentication/oauth
+
+/*Используем authorize
+Чтобы определить логику авторизации.
+*/

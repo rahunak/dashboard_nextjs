@@ -3,7 +3,7 @@
 This is the starter template for the Next.js App Router Course. It contains the starting code for the dashboard application.
 
 For more information, see the [course curriculum](https://nextjs.org/learn) on the Next.js Website.
-
+Install nodejs, docker.
 To run app locally: `npm run dev`
 
 attribute 'data-hj-suppress' uses with Hotjar services, to hide sensitive info in reports.
